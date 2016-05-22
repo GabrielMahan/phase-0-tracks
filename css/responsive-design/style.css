@@ -1,19 +1,49 @@
+
+
+
+
+
+
+
+/*
+The body become block inline for larger resolutions... 
+*/
+
+
 body {
-  width: 960px;
+  
+  display: block;
+  max-width: 960px;
+}
 
 
+
+
+
+@media screen and (min-width: 1000px) 
+
+{
+    body {
+        display: inline-block;
+    }
+
+    blockquote {
+      font-size: 2em;
+    }
 }
 
 main {
-  width: 756px;
-  position: relative;
-  display: inline-block;
+  width: 80%;
+  display: inherit;
  
 }
 
 #external-links {
-  position: fixed;
-  width: 200px;
+  width: 15%;
+  
+  display: inherit;
+  vertical-align: top;
+
 }
 
 blockquote {
@@ -36,8 +66,8 @@ cite {
 image, figure, and figcaption CSS if you'd like, 
 but it's optional! */
 
-img {
-  width: 100%;
+img { 
+ max-width: 100%;
 }
 
 figure {
@@ -49,3 +79,27 @@ figcaption {
   font-style: italic;
   text-align: right;
 }
+
+
+
+
+
+
+/*
+@media screen and (min-width: 500px) {
+  body {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1000px) 
+
+{
+    body {
+        background-color: pink;
+    }
+}
+
+
+* { outline: 1px solid red; }
+ */
