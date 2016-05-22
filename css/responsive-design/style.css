@@ -6,13 +6,13 @@ body {
 
 main {
   width: 756px;
-  float: right;
+  position: relative;
+  display: inline-block;
  
 }
 
 #external-links {
   position: fixed;
-  float: left;
   width: 200px;
 }
 
