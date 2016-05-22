@@ -1,3 +1,21 @@
+body {
+  width: 960px;
+
+
+}
+
+main {
+  width: 756px;
+  float: right;
+ 
+}
+
+#external-links {
+  position: fixed;
+  float: left;
+  width: 200px;
+}
+
 blockquote {
   border-left: 5px solid blue;
   padding: 15px;
@@ -17,6 +35,7 @@ cite {
 /* you're welcome to edit the
 image, figure, and figcaption CSS if you'd like, 
 but it's optional! */
+
 img {
   width: 100%;
 }
