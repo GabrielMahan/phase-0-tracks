@@ -1,0 +1,15 @@
+if robot wants to go up, press up
+therwise, press down.
+
+enter elevator. 
+press desired floor number. 
+
+Wait until door opens. 
+Leave elevator
+
+====
+
+wake up to NPR alarm @ 5:45
+stay in bed until 6:30
+Leave bed
+
