@@ -7,6 +7,7 @@ until hvol.is_a?(Fixnum) && hvol<11 do
 	puts "what is the hamster's volume level?"
 	print "Please enter a whole number between one and ten?: "
 	hvol = Integer(gets) rescue nil
+	#you could do a gets.chomp followed by .to_i
 end
 
 
