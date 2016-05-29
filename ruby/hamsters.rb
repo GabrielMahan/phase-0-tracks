@@ -18,8 +18,7 @@ hcanidate = gets.chomp
 if hcanidate.empty?
 	hcanidate = nil
 	puts hcanidate
-else
-	break
+
 end
 
 
