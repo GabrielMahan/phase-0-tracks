@@ -58,6 +58,36 @@ def vchecker
 	end
 
 
+	#Asks the canidate for allergies, AFTER establishing the boolean
+	#makes a counter, adds one for each response
+	puts "Do you have any allergies? List them one at a time and hit enter after each entry"
+	anumber = 1
+	allergylist = nil
+	#sets the index at 1 and the allergy list
+
+
+	until anumber == 0
+		#the loop will keep running until the user types "done," at which point the index is set at zero
+		#note that this is not storing the data in any significant way
+		puts "Allergy number #{anumber}"
+		
+		allergyresponse = gets.chomp
+		
+
+		if allergyresponse == "sunshine"
+			vstatus = "Definitely a vampire"
+			anumber = 0
+		elsif allergyresponse == "done"
+			anumber = 0
+		else
+			allergylistnumber = anumber.to_s
+			allergylist = "#{allergylist}   #{allergylistnumber}, #{allergyresponse}"
+			anumber += 1
+		end	
+	end
+	puts "listed allergies #{allergylist}"
+	
+
 	#Prints Vampire Status#
 	case vstatus
 	when "Inconclusive"
@@ -65,6 +95,8 @@ def vchecker
 	else
 		puts "The results of the test have determined that #{vname} is #{vstatus}"
 	end
+
+
 	
 end
 	
@@ -73,3 +105,5 @@ until currentnum == checknum
 	vchecker
 	currentnum += 1
 end 
+
+puts "Actually, lets be friends, even if you are a werewolf"
