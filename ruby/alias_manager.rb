@@ -41,6 +41,7 @@ end
 #p char_changer("r")
 #p char_changer("a")
 
+log = []
 response = ""
 until response == "quit"
 	puts "what's full name you want to swap??"
@@ -50,9 +51,10 @@ until response == "quit"
 	else
 		name_to_translate = response.split.rotate.join(' ')
 		name_swapper(name_to_translate)
+		log << name_swapper(name_to_translate)
 	end
 end
-
+p log 
 ###JUNK####
 
 #irst_name = name[0]
