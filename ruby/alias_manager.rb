@@ -29,11 +29,11 @@ def name_swapper(name)
 		old_char = name[index]
 		#p old_char
 		new_char = char_changer(old_char)
-		p new_char
+		#p new_char
 		new_name[index] = new_char.to_s
 		index += 1
 	end
-	p new_name
+	#p new_name
 
 
 end
@@ -43,6 +43,7 @@ end
 
 log = []
 response = ""
+gibberish_name = nil
 until response == "quit"
 	puts "what's full name you want to swap??"
 	response = gets.chomp
@@ -50,11 +51,13 @@ until response == "quit"
 		response
 	else
 		name_to_translate = response.split.rotate.join(' ')
-		name_swapper(name_to_translate)
-		log << name_swapper(name_to_translate)
+		gibberish_name = name_swapper(name_to_translate)
+		p gibberish_name
+		log << [response, gibberish_name]
 	end
 end
-p log 
+p log
+#log.each {|x| puts "#{{x[0] has a gibberish name of x[1]}}"}
 ###JUNK####
 
 #irst_name = name[0]
