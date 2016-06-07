@@ -22,7 +22,9 @@ def char_changer(char)
 end
 
 
-#Defines the a method 
+#Defines the a method to change the name
+	#note that the name parameter it takes has already been reversed (i.e. "last name, first name) by the driver code
+	#so this method just changes the characters
 def name_swapper(name)
 	#p name 
 	#p name.length
@@ -48,59 +50,22 @@ log = []
 response = ""
 gibberish_name = nil
 until response == "quit"
-	puts "what's full name you want to swap??"
+	puts "what's full name you want to swap??  Type 'quit' to exit."
 	response = gets.chomp
 	if response == "quit"
 		response
 	else
-		name_to_translate = response.split.rotate.join(' ')
+		name_to_translate = response.split.rotate.join(' ').downcase
 		gibberish_name = name_swapper(name_to_translate)
 		p gibberish_name
 		log << [response, gibberish_name]
 	end
 end
-p log
-#log.each {|x| puts "#{{x[0] has a gibberish name of x[1]}}"}
-###JUNK####
+#p log
+puts "Thanks for using alias manager"
+puts "A log of your aliases will now print"
+log.each {|x| puts "#{x[0]} has a alias name of #{x[1]}"}
 
-#irst_name = name[0]
-#	last_name = name[1]
-#
-#	p first_name
-#	p last_name
 
-#while char_index < first_name.length
-#		p first_name[char_index]
-#
-#		if consonants.index(first_name[char_index]) == nil
-#		#i.e. if it's a vowel
-#			
-#			first_name[char_index] = vowel
-#		
-#		consonants.index(first_name[char_index])
-#			
-#	
-#		char_index +=1 
-#vowels = "aeiou"
-#consonants = "bcdfghjklmnpqrstvwxyz"
 
-#for each name in the array... 
-#	for name_index in 0..1
-#		char_index = 0
-#		until (char_index + 1) == name[name_index].length
-#			#if it's not in vowels--i.e. it's a consonant
-#			if vowels.index(name[name_index][char_index].downcase) == nil
-#				name[name_index][char_index] = consonants[name[name_index][char_index].downcase.index+1]
-#
-#			#if it's a vowel
-#			else
-#				name[name_index][char_index] = vowels[name[name_index][char_index].downcase.index+1]
-#			end
-#		char_index += 1
-#		end
-#	end
-#
-#	p name
-#	name.join(' ')
-#	p name
-#end
+
