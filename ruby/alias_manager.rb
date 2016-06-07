@@ -2,24 +2,27 @@
 #Changing all of the vowels (a, e, i, o, or u) to the next vowel in 'aeiou', and all of the consonants (everything else besides the 
 #vowels) to the next consonant in the alphabet. So 'a' would become 'e', 'u' would become 'a', and 'd' would become 'f'.
 
+
+#Defines a character changer that will be used in the 'name swapper method'
+	#Methods takes a character, then changes it the next consonant or vowel (e.g. a->e, b->c))
 def char_changer(char)
 
 	#if it's a vowel
 	if !("aeiou".index(char)==nil)
-		char = "aeiou"["aeiou".index(char)+1]
+		char = "aeioua"["aeiou".index(char)+1]
 		#p char
 	#if it's a consonant
 	elsif !("bcdfghjklmnpqrstvwxyz".index(char) == nil)
-		char = "bcdfghjklmnpqrstvwxyz"["bcdfghjklmnpqrstvwxyz".index(char)+1]
+		char = "bcdfghjklmnpqrstvwxyzb"["bcdfghjklmnpqrstvwxyz".index(char)+1]
 	#if it's a differnt symbol
 	else
-		char = " "
+		char
 	end
 	
 end
 
 
-
+#Defines the a method 
 def name_swapper(name)
 	#p name 
 	#p name.length
@@ -34,7 +37,7 @@ def name_swapper(name)
 		index += 1
 	end
 	#p new_name
-
+	new_name
 
 end
 
