@@ -15,7 +15,7 @@ class Puppy
 		dog_age
 	end
 	def bark_crasher
-		puts "#{1000.times {puts "bark"}} "
+		puts "#{100.times {|i| puts "bark #{i}"}} "
 	end
 	#well that's cool--runs every time before the method
 	def initialize
@@ -51,7 +51,8 @@ end
 
 trainer_log = []
 50.times {trainer_log << Dog_trainer.new.snuggle}
-trainer_log.each {|value| value << (" #{Dog_trainer.new.nudge}" + " #{Dog_trainer.new.puppy_chomp}") }
+trainer_log.each {|value| value << (" #{Dog_trainer.new.nudge}" + "#{Dog_trainer.new.puppy_chomp}") }
 p trainer_log
 
+Puppy.new.bark_crasher
 
