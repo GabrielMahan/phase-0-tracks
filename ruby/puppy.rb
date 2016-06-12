@@ -26,3 +26,4 @@ end
 # def fetch.self(toy) to make it a "class method"
 #as written, it's an "instance method"
 Puppy.new.fetch("rope")
+

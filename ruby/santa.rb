@@ -44,6 +44,10 @@ santas = []
 #santas << Santa.new("gender fluid", "Mystical Creature (unicorn)")
 #santas << Santa.new("N/A", "N/A")
 
+
+example_genders = ["agender", "female", "bigender", "male", "female", "gender fluid", "N/A"]
+example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+
 new_santa = Santa.new("male","black")
 new_santa.get_mad_at("Dasher")
 new_santa.gender_setter= "the big bad wolf"
@@ -53,6 +57,11 @@ new_santa.gender
 p santas
 
 new_santa = nil
-1000.times do |i|
-	Santa.new()
+1000.times do 
+	new_santa = Santa.new(example_genders.sample, example_ethnicities.sample)
+	new_santa.age = rand(140)
+	p new_santa.age 
+	p new_santa.gender
+	p new_santa.ethnicity
+end
 
