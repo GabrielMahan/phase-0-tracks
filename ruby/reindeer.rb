@@ -16,6 +16,7 @@ class Reindeer
     puts "#{@name} landed safely in #{location}."
     @location = location
   end
+  
 end
 
 reindeer = Reindeer.new("Dasher")
