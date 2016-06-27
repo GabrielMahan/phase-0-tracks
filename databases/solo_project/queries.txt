@@ -1,0 +1,34 @@
+
+display info in a table
+	SELECT * FROM students;
+	SELECT * FROM grades;
+
+update an item that meets a condition
+	UPDATE students SET graduation_in_doubt='FALSE' WHERE name = 'Otho Johnston DDS';
+	SELECT * FROM students WHERE name='Otho Johnston DDS';
+
+
+display info in both using one query
+	SELECT students.*, grades.* FROM students JOIN grades ON students.grade = grades.id;
+
+
+Display narrow in one query 
+	SELECT students.name, grades.grade FROM students JOIN grades ON students.grade = grades.id;
+
+Delete an item that meets  a condition
+	DELETE FROM grades WHERE grades.id>4;
+
+JOINS:::: My joins don't really yield very interesting info, my data matches
+
+	OUTER JOIN:: 
+
+	SELECT students.*, grades.* FROM students 
+		OUTER JOIN grades ON students.grade = grades.id;
+
+		Output::: Error: RIGHT and FULL OUTER JOINs are not currently supported
+
+
+	CROSS JOIN: 
+	SELECT students.*, grades.* FROM students CROSS JOIN grades ON students.grade = grades.id;
+
+	Inner join: same output
