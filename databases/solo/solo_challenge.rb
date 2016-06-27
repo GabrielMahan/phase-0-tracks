@@ -1,13 +1,12 @@
 # set up a --very-- basic quiz program (I'm a teacher)
 # program needs to 
-	#Accecpt user data, store in bd
 	#Give the user a problem
-	#Give the user feedback
+	#Accecpt user response, see if it's correct
 	#Store the user's feedback
-# Functionality wishlist ... 
-	# to be developed....
-	# Multiple problems, averages
-	# Different Levels
+# Functionality wishlist ... to be developed....
+	# cycle through multiple problems
+	# give the user data like averages
+	# have a fancy UI
 
 # require gems
 require 'rubygems'
@@ -42,6 +41,24 @@ create_problems_table = <<-SQLCOMMANDS
 SQLCOMMANDS
 quiz.execute(create_problems_table)
 
+
+
+#Student_response table
+create_student_response_table = <<-SQLCOMMANDS
+	CREATE TABLE IF NOT EXISTS student_response(
+	id INTEGER PRIMARY KEY,
+	category INTEGER,
+	is_correct INTEGER,
+	problem_number INTEGER,
+	
+	);
+SQLCOMMANDS
+quiz.execute(create_student_response_table)
+
+
+
+
+
 #add astudent users
 def add_student_user(student, age, db)
 db.execute("INSERT INTO problems (name, age) VALUES ('#{student}', #{age})")
@@ -73,7 +90,7 @@ def print_question(category, problem_number, db)
 	#retrieves the problem
 	problem_array = db.execute("select * from problems WHERE category='#{category}';")
 	correct_answer = problem_array[problem_number][7]
-	p problem_array[problem_number]
+	#p problem_array[problem_number]
 
 	#prints the problem
 	puts "Category: #{category} Problem; #{problem_number}\n Question: #{problem_array[problem_number][2]}\n"
@@ -93,12 +110,14 @@ def print_question(category, problem_number, db)
 	else
 		is_correct = false
 	end
-	p is_correct
+	#p is_correct
 
 end
 print_question(categories[rand(4)], 3, quiz)
 
 
-#take an answer, give feedback
+#cycle through multiple problems
 
-#def feedback_giver(input, correct_answer)
+#stores user response for a question number
+
+#def store_result
