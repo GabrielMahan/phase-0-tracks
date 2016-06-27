@@ -67,12 +67,38 @@ categories = ['genetics', 'evolution', 'cells', 'systems']
 
 
 
-#print a question
+#print a question and take an answer
 def print_question(category, problem_number, db)
-problem_array = db.execute("select * from problems WHERE category='#{category}';")
-p problem_array[problem_number]
+
+	#retrieves the problem
+	problem_array = db.execute("select * from problems WHERE category='#{category}';")
+	correct_answer = problem_array[problem_number][7]
+	p problem_array[problem_number]
+
+	#prints the problem
+	puts "Category: #{category} Problem; #{problem_number}\n Question: #{problem_array[problem_number][2]}\n"
+	puts "1: #{problem_array[problem_number][3]} \n2: #{problem_array[problem_number][4]} \n3: #{problem_array[problem_number][5]} \n4: #{problem_array[problem_number][6]}"
+
+	#gets a response
+	user_response = 0
+	until (user_response == 1)||(user_response == 2)||(user_response == 3) ||(user_response == 4) do
+		puts "Response:"
+		user_response = gets.chomp.to_i
+	end
+
+	#sets true or false
+	is_correct = nil
+	if user_response == correct_answer
+		is_correct = true
+	else
+		is_correct = false
+	end
+	p is_correct
+
 end
-print_question(categories[rand(4)],rand(20), quiz)
+print_question(categories[rand(4)], 3, quiz)
 
 
 #take an answer, give feedback
+
+#def feedback_giver(input, correct_answer)
