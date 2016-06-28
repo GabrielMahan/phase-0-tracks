@@ -47,10 +47,10 @@ quiz.execute(create_problems_table)
 create_student_response_table = <<-SQLCOMMANDS
 	CREATE TABLE IF NOT EXISTS student_response(
 	id INTEGER PRIMARY KEY,
-	category INTEGER,
+	category VARCHAR(200),
 	is_correct INTEGER,
 	problem_number INTEGER,
-	
+	FOREIGN KEY (problem_number) REFERENCES problems(id)
 	);
 SQLCOMMANDS
 quiz.execute(create_student_response_table)
@@ -78,8 +78,8 @@ end
 
 categories = ['genetics', 'evolution', 'cells', 'systems']
 
-#400.times do
-#	add_problem(categories[rand(4)], Faker::Lorem.sentence(3),Faker::Lorem.word,Faker::Lorem.word,Faker::Lorem.word,Faker::Lorem.word, rand(1..4),quiz)
+#50.times do
+#	add_problem(categories[rand(0..3)], Faker::Lorem.sentence(3),Faker::Lorem.word,Faker::Lorem.word,Faker::Lorem.word,Faker::Lorem.word, rand(1..4),quiz)
 #end
 
 
@@ -110,14 +110,28 @@ def print_question(category, problem_number, db)
 	else
 		is_correct = false
 	end
-	#p is_correct
+	
+	#store the data in the intermediate table
 
 end
+
 print_question(categories[rand(4)], 3, quiz)
 
 
 #cycle through multiple problems
 
+counter = 0
+number_of_problems_to_ask = 5
+p counter
+
+number_of_problems_to_ask.times do
+	puts 'hello'
+	print_question(categories[rand(4)], 3, quiz)
+end
+
+p counter
+
+
+
 #stores user response for a question number
 
-#def store_result
