@@ -111,7 +111,9 @@ def print_question(category, problem_number, db)
 		is_correct = false
 	end
 	
-	#store the data in the intermediate table
+	return_data = [category, problem_array[0][0], is_correct ]
+	p return_data
+	return_data
 
 end
 
@@ -126,7 +128,7 @@ p counter
 
 number_of_problems_to_ask.times do
 	puts 'hello'
-	print_question(categories[rand(4)], 3, quiz)
+	print_question(categories[rand(4)], rand(3), quiz)
 end
 
 p counter
