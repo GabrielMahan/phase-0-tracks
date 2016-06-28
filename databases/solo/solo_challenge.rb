@@ -50,6 +50,8 @@ create_student_response_table = <<-SQLCOMMANDS
 	category VARCHAR(200),
 	is_correct INTEGER,
 	problem_number INTEGER,
+	student_id INTEGER,
+	FOREIGN KEY (student_id) REFERENCES students(id),
 	FOREIGN KEY (problem_number) REFERENCES problems(id)
 	);
 SQLCOMMANDS
@@ -61,7 +63,7 @@ quiz.execute(create_student_response_table)
 
 #add astudent users
 def add_student_user(student, age, db)
-db.execute("INSERT INTO problems (name, age) VALUES ('#{student}', #{age})")
+db.execute("INSERT INTO students (name, age) VALUES ('#{student}', #{age})")
 end
 #test  add_student_user("ROBERTO", 17, quiz) 
 
@@ -82,6 +84,21 @@ categories = ['genetics', 'evolution', 'cells', 'systems']
 #	add_problem(categories[rand(0..3)], Faker::Lorem.sentence(3),Faker::Lorem.word,Faker::Lorem.word,Faker::Lorem.word,Faker::Lorem.word, rand(1..4),quiz)
 #end
 
+
+#stores user response for a question number
+def store_data(database, user, data)
+	category = data[0]
+	problem_number = [1]
+	is_correct = data[2]
+
+	p category
+	p problem_number
+	p is_correct
+
+	# cat, is_c, #
+
+	database.execute("INSERT INTO student_response (category, is_correct, problem_number, student_id) VALUES ('#{category}', '#{is_correct}', '#{problem_number}', '#{user}')")
+end
 
 
 #print a question and take an answer
@@ -106,16 +123,22 @@ def print_question(category, problem_number, db)
 	#sets true or false
 	is_correct = nil
 	if user_response == correct_answer
-		is_correct = true
+		is_correct = 1
 	else
-		is_correct = false
+		is_correct = 0
 	end
 	
-	#store the data in the intermediate table
+	return_data = [category, problem_array[0][0], is_correct ]
+	p return_data
+	return_data
 
 end
 
 print_question(categories[rand(4)], 3, quiz)
+
+
+# take a user 
+
 
 
 #cycle through multiple problems
@@ -126,12 +149,15 @@ p counter
 
 number_of_problems_to_ask.times do
 	puts 'hello'
-	print_question(categories[rand(4)], 3, quiz)
+	question_data = print_question(categories[rand(4)], rand(3), quiz)
+
+	# here I've give a random user for the second argument, but it can be specifiec
+	store_data(quiz, rand(1..100),question_data)
 end
 
 p counter
 
 
 
-#stores user response for a question number
+
 
