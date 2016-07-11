@@ -4,6 +4,13 @@
 	<title>View the NYC Cohort</title>
 </head>
 <body>
-<%= @nyc_students %> 
+<h3>
+Meet the NYC cohort
+</h3>
+<ul>
+    <% @nyc_students.each do |student| %>
+      <li><%= student['name'] %>, <%= student['age'] %></li>
+    <% end %>
+</ul>
 </body>
 </html>
