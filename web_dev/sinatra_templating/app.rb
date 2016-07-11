@@ -24,4 +24,9 @@ post '/students' do
   redirect '/'
 end
 
-# add static resources
+# add an ERB template
+
+get '/nyc' do 
+	@nyc_students = db.execute("SELECT * FROM students WHERE campus='NYC'")
+	erb :nyc
+end
