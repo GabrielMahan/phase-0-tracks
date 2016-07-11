@@ -70,3 +70,10 @@ end
 
 #A route that uses route parameters to add two numbers and respond with the result. 
 #The data types are tricky here -- when will the data need to be (or arrive as) a string?
+
+get '/:num1/plus/:num2' do
+  addnum1 = params[:num1].to_i
+  addnum2 = params[:num2].to_i
+  sum = addnum1 + addnum2 
+  sum.to_s
+end
